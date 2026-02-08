@@ -1,0 +1,374 @@
+@import "rout.css";
+html {
+  scroll-behavior: smooth;
+  height: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--chart-1) transparent;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--chart-1);
+  border-radius: 10px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.header {
+    background-color: var( --chart-5);
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+}
+/* Classe aplicada via JavaScript */
+.header.scrolled {
+  background-color: var(--chart-3  );
+  /* padding: 0.6rem 0; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+ 
+}
+
+/* Seleciona todos os elementos focáveis quando navegados por teclado */
+:focus-visible {
+  outline: 3px solid var(--ring); /* Cor branca */
+  outline-offset: 2px; /* Espaço entre o elemento e a borda */
+  box-shadow: 0 0 8px var(  --input); /* Sombra para dar contraste em fundos claros */
+  border-radius: var(  --radius);
+  padding: 6px 8px;
+}
+
+/* Caso queira remover o outline padrão do navegador que às vezes é azul/preto */
+:focus {
+  outline: none;
+} 
+
+/*  */
+
+.nav {
+   
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* * 1️⃣ Logo */
+.nav__logo-wrapper {
+    flex: 1;
+}
+
+.nav__logo-img {
+
+    width: 100px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.desktopLinks,
+.socialLinks,
+.themes {
+    display: none;
+}
+
+.linksNavGation {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+     font-weight: 600;
+ font-size: 1.2rem;
+color: var(--sidebar-foreground);
+
+
+}
+.icon{
+    color: var( --chart-1);
+}
+
+
+.linksMonbile {
+    display: flex;
+    flex-direction: column;
+    gap: 1;
+}
+
+.mobileLinks,
+.socialLinksMobile {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    gap: 0.75rem;
+}
+
+ 
+.social-link.facebook {
+  color: var(--facebook);
+}
+
+
+.social-link.instagram {
+  color: var(--instagram);
+}
+
+.social-link.github {
+  color: var(--github);
+}
+.socialLinksMobile{
+    margin-top: 1rem;
+}
+.theme-btn{
+    background-color: transparent;
+    border: none;
+   
+}
+
+
+button, #toggle{
+    background-color: transparent;
+    border: none;
+    color:var(--background);
+   
+    
+}
+
+.icon-moon{
+    color: var( --theme-moon);
+}
+
+.icon-sun{
+    color: var( --theme-sun);
+}
+#aside {
+    padding: 2rem 1.75rem;
+    max-width: 85%;
+    height: 100vh;
+    right: 0;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    border-right: 1px solid var(--bg-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+    /* acima dos outros elementos */
+    background-color: var(--sidebar);
+    border: 1px solid var(--sidebar-border);
+}
+
+#aside.open {
+    transform: translateX(0);
+}
+
+#aside {
+   scrollbar-width: none;      /*Firefox */
+}
+
+#aside::-webkit-scrollbar {
+  display: none;              /* Chrome, Edge, Safari */
+}
+#aside {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+#author{
+    padding: 8rem 2rem;
+}
+/* top */
+
+/* --- Botão Voltar ao Topo --- */
+#btn-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: color-mix(in oklch, var(--chart-4) 70%, var(--sidebar-ring) 30%);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.3s ease;
+}
+
+#btn-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+#btn-top svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  position: absolute;
+}
+
+#btn-top .bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 6;
+}
+
+#btn-top .progress {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 6;
+  stroke-linecap: round;
+  /* Circunferência para raio 45 é ~283 */
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+#btn-top i {
+  font-size: 1.2rem;
+  color: var(--primary);
+  z-index: 2;
+}
+
+#btn-top .arrow {
+  fill: var(--primary-foreground);
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+#btn-top:hover {
+  transform: scale(1.1);
+}
+footer{
+ background-color: var(  --chart-3);
+}
+.footer{ 
+gap: 2rem;
+ padding: 2rem 0.75rem;
+display: grid;
+grid-template-columns: repeat(3 ,auto);
+align-items:flex-start;
+justify-content: center;
+}
+.socialLinkFooter{
+   display: flex;
+ gap: 0.25rem;
+}
+
+/* footer */
+footer .nav__logo-img{
+    width: 60px;
+}
+@media (min-width: 768px) {
+    
+
+    .mobileMenu {
+        display: none;
+    }
+ 
+
+
+    
+  
+
+
+
+}
+
+/* ==================================================
+   DESKTOP ≥ 1024px
+   ================================================== */
+@media (min-width: 1024px) {
+    .themesMobil {
+        display: none;
+        background-color: aqua;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+
+    .icon {
+        display: none;
+    }
+
+    /* 2️⃣ Links de páginas (MAIOR PARTE) */
+    .desktopLinks {
+        flex: 5;
+        /* 🔥 ocupa mais espaço */
+        display: flex;
+        justify-content: center;
+        gap: 1.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /* 3️⃣ Redes sociais */
+    .socialLinks {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    /* 4️⃣ Botão tema */
+    .themes {
+        flex: 0.5;
+        gap: 0.5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #toggle {
+        display: none;
+    }
+    /* footer */
+   
+
+ .footer{ 
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 3rem 2rem;
+}
+.nav__logo-wrapperFooter{
+    flex: 2;
+
+}
+.desktopLinksFooter{
+    flex: 4;
+    display: flex;
+    gap: 1rem;
+}
+.socialLinkFooter{
+   display: flex;
+ gap: 0.25rem;
+}
+
+
+
+  
+}

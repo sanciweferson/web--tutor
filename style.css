@@ -1,0 +1,32 @@
+@import "root.css";
+
+
+
+#app{
+    flex: 1;
+}
+
+
+.content{
+   padding: 7rem 1rem;
+}
+
+
+/* ==================================================
+   DESKTOP ≥ 1024px
+   ================================================== */
+@media (min-width: 1024px) {
+    #app{
+    
+    margin: 0rem ;
+    }
+
+ 
+.content{
+padding: 8rem 1.25rem;
+}
+
+
+  
+    
+  }

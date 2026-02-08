@@ -1,0 +1,10 @@
+
+@import "root.css";
+
+
+
+ @media(min-width: 1024px) {
+   
+.content{
+padding: 8rem 1.25rem;
+}}
