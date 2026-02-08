@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-    background-color: var( --chart-5);
+    /* background-color: var( --chart-5); */
     position: fixed;
     right: 0;
     top: 0;
@@ -29,9 +29,9 @@ body {
 }
 /* Classe aplicada via JavaScript */
 .header.scrolled {
-  background-color: var(--chart-3  );
-  /* padding: 0.6rem 0; */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* background-color: var(--chart-3  );
+  padding: 0.6rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
  
 }
 
