@@ -2,8 +2,8 @@
 
 const getMenuElements = () => {
   return {
-    btn: document.getElementById("toggle"),
-    side: document.getElementById("aside")
+    btn: document.getElementById("js-menu-toggle"),
+    side: document.getElementById("js-nav-aside")
   };
 };
 
@@ -55,8 +55,8 @@ export const openSideMenu = (isInitialLoad = false) => {
   btn.setAttribute("aria-label", "Fechar menu");
 
   // troca ícones (hamburger -> close)
-  btn.querySelector(".icon-open")?.classList.add("hidden");
-  btn.querySelector(".icon-close")?.classList.remove("hidden");
+  btn.querySelector(".nav__icon--open")?.classList.add("hidden");
+  btn.querySelector(".nav__icon--close")?.classList.remove("hidden");
 
   document.addEventListener("keydown", handleKeyboardFocus);
 
@@ -84,8 +84,8 @@ export const closeSideMenu = () => {
   btn.setAttribute("aria-label", "Abrir menu");
 
   // troca ícones (close -> hamburger)
-  btn.querySelector(".icon-open")?.classList.remove("hidden");
-  btn.querySelector(".icon-close")?.classList.add("hidden");
+  btn.querySelector(".nav__icon--open")?.classList.remove("hidden");
+  btn.querySelector(".nav__icon--close")?.classList.add("hidden");
 
   document.removeEventListener("keydown", handleKeyboardFocus);
   localStorage.setItem("menuOpen", "false");

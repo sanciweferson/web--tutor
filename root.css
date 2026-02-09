@@ -22,6 +22,12 @@ margin: 0 auto;
  max-width: 1280px;
     }
  :root {
+  --font-family: "Roboto", sans-serif;
+  --font-optical-sizing: auto;
+  --font-weight: <weight>;
+  --font-style: normal;
+  --font-variation-settings:
+    "wdth" 100;
   --radius: 0.65rem; /* Arredondamento das bordas */
   --background: oklch(1 0 0); /* Fundo principal da página (Branco) */
   --foreground: oklch(0.141 0.005 285.823); /* Cor do texto principal (Roxo quase preto) */

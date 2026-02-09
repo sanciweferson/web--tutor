@@ -17,8 +17,8 @@ const handleResize = () => {
 
 export const initMenu = () => {
   const checkInterval = setInterval(() => {
-    const toggleBtn = document.getElementById("toggle");
-    const sideMenu = document.getElementById("aside");
+    const toggleBtn = document.getElementById("js-menu-toggle");
+    const sideMenu = document.getElementById("js-nav-aside");
 
     if (toggleBtn && sideMenu) {
       setupMenuToggle();
