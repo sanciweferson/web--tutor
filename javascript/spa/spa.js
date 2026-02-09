@@ -1,9 +1,9 @@
 
 function configurarScroll() {
-  const header = document.querySelector(".header");
+  const nav = document.querySelector(".nav");
   const app = document.getElementById("app");
 
-  if (!header) return;
+  if (!nav) return;
 
   function atualizarEstadoScroll() {
     // Tenta pegar o scroll do app, se for 0, tenta o da janela (window)
@@ -16,9 +16,9 @@ function configurarScroll() {
     console.log("Posição detectada:", scrollAtual);
 
     if (scrollAtual > 10) {
-      header.classList.add("scrolled");
+      nav.classList.add("scrolled");
     } else {
-      header.classList.remove("scrolled");
+      nav.classList.remove("scrolled");
     }
   }
 

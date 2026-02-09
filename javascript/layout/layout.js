@@ -2,7 +2,7 @@ const Icons = {
   logo: `<img src="javascript/layout/img/logo.svg" alt="Logo tutor" />`,
   hamburger: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>`,
   close: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-close"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`,
-  home: `<svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2-2H5a2 2 0 0 1-2-2z"/></svg>`,
+  home: `<svg  class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>`,
   chapters: `<svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5H3"/><path d="M16 12H3"/><path d="M16 19H3"/><path d="M21 5h.01"/><path d="M21 12h.01"/><path d="M21 19h.01"/></svg>`,
   summary: `<svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0"/><path d="M5 9a6.5 6.5 0 0 1 7 0 6.5 6.5 0 0 0 7 0"/></svg>`,
   bulb: `<svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`,
@@ -36,8 +36,8 @@ const socialLinks = [
 
 function createLogoItem(href = "/") {
   return `
-    <li class="nav__item">
-      <a href="${href}" class="nav__logo-link" aria-label="Ir para a página inicial">
+    <li>
+      <a href="${href} aria-label="Ir para a página inicial">
         ${Icons.logo}
       </a>
     </li>
@@ -55,21 +55,44 @@ function createToggleMenu() {
   `;
 }
 
-function createNavItem({ href, icon, text }, isMobile = false) {
-  const baseClass = isMobile ? "nav__mobile-link" : "nav__link";
+function createNavItem({ href, icon, text }, variant = "", iconVariant = "") {
+  const variantClassMap = {
+    mobile: "nav__link nav__link--mobile",
+    desktop: "nav__link nav__link--desktop",
+    footer: "nav__link nav__link--footer",
+  };
+
+  const iconClassMap = {
+    mobileIcon: "nav__icon nav__icon--mobile",
+    footerIcon: "nav__icon nav__icon--footer",
+    desktopIcon: "nav__icon nav__icon--desktop",
+  };
+
   return `
-    <li class="nav__item">
-      <a class="${baseClass}" href="${href}" aria-label="${text}">
-      <span>  ${Icons[icon]}</span> <span>${text}</span>
+    <li>
+      <a class="${variantClassMap[variant]}" href="${href}" aria-label="${text}">
+        <span class="${iconClassMap[iconVariant]}">
+          ${Icons[icon]}
+        </span>
+        <span class="nav__text">${text}</span>
       </a>
     </li>
   `;
 }
 
-function createSocialItem({ href, icon, label }, suffix = "") {
+
+
+ 
+function createSocialItem({ href, icon, label }, variantSocial = "") {
+    const socialClassMap = {
+    mobileIconSocial: "nav__iconSocial nav__icon--social-mobile",
+    footerIconSocial: "nav__iconSocial nav__icon--social-footer",
+   
+  };
+
   return `
-    <li class="social__item">
-      <a class="social__link social__link--${icon}${suffix}" href="${href}" aria-label="${label}" target="_blank" rel="noopener noreferrer">
+    <li>
+      <a class="${socialClassMap[variantSocial]}" "href="${href}" aria-label="${label}" target="_blank" rel="noopener noreferrer">
         ${Icons[icon]}
       </a>
     </li>
@@ -78,10 +101,10 @@ function createSocialItem({ href, icon, label }, suffix = "") {
 
 function createThemeToggle() {
   return `
-    <li class="nav__item">
-      <button class="nav__btn-theme type="button" aria-label="Alternar tema">
-        ${Icons.moon}
-        ${Icons.sun}
+    <li>
+      <button class="nav__btn-theme" type="button" aria-label="Alternar tema">
+        <span class="icon icon--moon">${Icons.moon}</span>
+        <span class="icon icon--sun">${Icons.sun}</span>
       </button>
     </li>
   `;
@@ -92,31 +115,34 @@ function createThemeToggle() {
 class NavBar extends HTMLElement {
   connectedCallback() {
     const logoHTML = createLogoItem();
-    const desktopLinksHTML = navLinks.map(link => createNavItem(link)).join("");
-    const mobileLinksHTML = navLinks.map(link => createNavItem(link, true)).join("");
-    const socialHTML = socialLinks.map(social => createSocialItem(social)).join("");
+    const desktopLinksHTML = navLinks.map(link => createNavItem(link, "desktop", "desktopIcon")).join("");
+const mobileLinksHTML = navLinks
+  .map(link => createNavItem(link, "mobile", "mobileIcon"))
+  .join("");
+    const socialHTML = socialLinks.map(social => createSocialItem(social, "mobileIconSocial")).join("");
     const menuToggleHTML = createToggleMenu();
     const themeDesktopHTML = createThemeToggle("toggle-desktop");
     const themeMobileHTML = createThemeToggle("toggle-mobile");
+    
 
     this.innerHTML = `
       <nav class="nav" aria-label="Navegação principal">
         <div class="nav__container container">
-          <ul class="nav__list nav__list--logo">${logoHTML}</ul>
+          <ul class=" nav__list--logo">${logoHTML}</ul>
           
-          <ul class="nav__list nav__list--toggle-btn">${menuToggleHTML}</ul>
+          <ul class=" nav__list--toggle-btn">${menuToggleHTML}</ul>
 
-          <ul class="nav__list nav__list--desktop" role="list">${desktopLinksHTML}</ul>
+          <ul class=" nav__list--desktop" role="list">${desktopLinksHTML}</ul>
 
-          <ul class="nav__list nav__list--social" role="list">${socialHTML}</ul>
+          <ul class=" nav__list--social" role="list">${socialHTML}</ul>
 
-          <ul class="nav__list nav__list--theme" role="list">${themeDesktopHTML}</ul>
+          <ul class=" nav__list--theme" role="list">${themeDesktopHTML}</ul>
 
           <aside class="nav__aside" id="js-nav-aside">
             <div class="nav__mobile-wrapper">
-            <div><ul class="nav__list nav__list--mobile">${mobileLinksHTML}</ul>
-              <ul class="social__list social__list--mobile">${socialHTML}</ul></div>
-              <ul class="nav__list nav__list--theme-mobile">${themeMobileHTML}</ul>
+            <div><ul class="nav__list--mobile">${mobileLinksHTML}</ul>
+              <ul class=" social__list--mobile">${socialHTML}</ul></div>
+              <ul>${themeMobileHTML}</ul>
             </div>
           </aside>
         </div>
@@ -128,16 +154,16 @@ class NavBar extends HTMLElement {
 class FooterBar extends HTMLElement {
   connectedCallback() {
     const logoHTML = createLogoItem();
-    const linksHTML = navLinks.map(link => createNavItem(link)).join("");
-    const socialHTML = socialLinks.map(social => createSocialItem(social, "-footer")).join("");
+    const linksHTML = navLinks.map(link => createNavItem( link, "footer", "footerIcon")).join("");
+    const socialHTML = socialLinks.map(social => createSocialItem(social, "footerIconSocial")).join("");
 
     this.innerHTML = `
       <footer class="footer">
         <div class="footer__container container">
-          <ul class="footer__list footer__list--links " role="list">${linksHTML}</ul>
+         <div> <ul class="footer__list" role="list">${linksHTML}</ul></div>
         <div class="footer__logo__social">
- <ul class="footer__list footer__list--logo">${logoHTML}</ul>
-          <ul class="footer__list footer__list--social" role="list">${socialHTML}</ul></div>
+        <ul class=" footer__list--logo">${logoHTML}</ul>
+          <ul class=" footer__list--social" role="list">${socialHTML}</ul></div>
         </div>
         <ul class="footer__copy">© 2026 • Feito com JavaScript puro</ul>
       </footer>
