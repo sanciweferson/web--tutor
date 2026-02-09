@@ -238,7 +238,7 @@ color: var( --sidebar-foreground);
   background: color-mix(in oklch, var(--background) 70%, var(--sidebar-ring) 30%);
   backdrop-filter: blur(8px);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 99;
   display: flex;
   align-items: center;
   justify-content: center;
