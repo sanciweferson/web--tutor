@@ -1,14 +1,15 @@
 @import "root.css";
 
-
+@import "javascript/layout/style.css";
 
 #app{
     flex: 1;
+    padding: 5rem;
+    /* background-color: aqua; */
 }
 
-
-.content{
-   padding: 7rem 1rem;
+#home{
+    padding-top: 2rem;
 }
 
 
@@ -22,9 +23,7 @@
     }
 
  
-.content{
-padding: 8rem 1.25rem;
-}
+
 
 
   

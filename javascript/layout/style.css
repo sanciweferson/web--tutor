@@ -1,4 +1,4 @@
-@import "rout.css";
+
 html {
   scroll-behavior: smooth;
   height: auto;
@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-    /* background-color: var( --chart-5); */
+    background-color: var( --chart-5);
     position: fixed;
     right: 0;
     top: 0;
@@ -29,9 +29,9 @@ body {
 }
 /* Classe aplicada via JavaScript */
 .header.scrolled {
-  /* background-color: var(--chart-3  );
+  background-color: var(--chart-3  );
   padding: 0.6rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
  
 }
 
@@ -187,9 +187,7 @@ button, #toggle{
 }
 
 
-#author{
-    padding: 8rem 2rem;
-}
+
 /* top */
 
 /* --- Botão Voltar ao Topo --- */
@@ -259,7 +257,7 @@ button, #toggle{
   transform: scale(1.1);
 }
 footer{
- background-color: var(  --chart-3);
+ background-color: var(  --chart-1);
 }
 .footer{ 
 gap: 2rem;
