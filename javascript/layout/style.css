@@ -260,10 +260,10 @@ button {
   height: 56px;
   border-radius: 50%;
   border: 1px solid var(--border);
-  background: color-mix(in oklch, var(--background) 70%, var(--sidebar-ring) 30%);
+  background: color-mix(in oklch, var( --chart-4) 70%, var(--sidebar-ring) 30%);
   backdrop-filter: blur(8px);
   cursor: pointer;
-  z-index: 9999;
+  z-index: 9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -271,6 +271,7 @@ button {
   pointer-events: none;
   transform: translateY(20px) scale(0.9);
   transition: all 0.3s ease;
+  
 }
 
 #btn-top.show {
