@@ -250,7 +250,11 @@ button {
 }
 
 .icon-moon{ color: var(--theme-moon); } .icon-sun{ color: var(--theme-sun); }
+.nav__btn-theme{
+  border: none;
+  background-color: transparent;
 
+}
 
 @media (min-width: 1024px) {
   .nav__list--toggle-btn,
