@@ -85,6 +85,7 @@ function createNavItem({ href, icon, text }, variant = "", iconVariant = "") {
 function createSocialItem({ href, icon, label }, variantSocial = "") {
   const socialClassMap = {
     mobileIconSocial: "nav__iconSocial nav__icon--social-mobile",
+  desktopIconSocial: "nav__iconSocial nav__icon--social-desktop",
     footerIconSocial: "nav__iconSocial nav__icon--social-footer",
   };
 
@@ -119,7 +120,15 @@ class NavBar extends HTMLElement {
 const mobileLinksHTML = navLinks
   .map(link => createNavItem(link, "mobile", "mobileIcon"))
   .join("");
-    const socialHTML = socialLinks.map(social => createSocialItem(social, "mobileIconSocial")).join("");
+const socialMobileHTML = socialLinks
+  .map(social => createSocialItem(social, "mobileIconSocial"))
+  .join("");
+
+const socialDesktopHTML = socialLinks
+  .map(social => createSocialItem(social, "desktopIconSocial"))
+  .join("");
+
+
     const menuToggleHTML = createToggleMenu();
     const themeDesktopHTML = createThemeToggle("toggle-desktop");
     const themeMobileHTML = createThemeToggle("toggle-mobile");
@@ -134,14 +143,14 @@ const mobileLinksHTML = navLinks
 
           <ul class=" nav__list--desktop" role="list">${desktopLinksHTML}</ul>
 
-          <ul class=" nav__list--social" role="list">${socialHTML}</ul>
+          <ul class=" nav__list--social" role="list">${socialDesktopHTML}</ul>
 
           <ul class=" nav__list--theme" role="list">${themeDesktopHTML}</ul>
 
           <aside class="nav__aside" id="js-nav-aside">
             <div class="nav__mobile-wrapper">
             <div><ul class="nav__list--mobile">${mobileLinksHTML}</ul>
-              <ul class=" social__list--mobile">${socialHTML}</ul></div>
+              <ul class=" social__list--mobile">${ socialMobileHTML}</ul></div>
               <ul>${themeMobileHTML}</ul>
             </div>
           </aside>
@@ -153,16 +162,19 @@ const mobileLinksHTML = navLinks
 
 class FooterBar extends HTMLElement {
   connectedCallback() {
+    const socialFooterHTML = socialLinks
+  .map(social => createSocialItem(social, "footerIconSocial"))
+  .join("");
     const logoHTML = createLogoItem();
     const linksHTML = navLinks.map(link => createNavItem( link, "footer", "footerIcon")).join("");
-    const socialHTML = socialLinks.map(social => createSocialItem(social, "footerIconSocial")).join("");
+
 
     this.innerHTML = `
       <footer class="footer">
         <div class="footer__container containe">
           <ul class="footer__list" role="list">${linksHTML}</ul>
         <div class="footer__logo__social">
-          <ul class=" footer__list--social" role="list">${socialHTML}</ul>
+          <ul class=" footer__list--social" role="list">${socialFooterHTML}</ul>
            <ul class=" footer__list--logo">${logoHTML}</ul>
         </div>
         </div>
