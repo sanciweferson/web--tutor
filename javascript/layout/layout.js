@@ -159,7 +159,7 @@ class FooterBar extends HTMLElement {
 
     this.innerHTML = `
       <footer class="footer">
-        <div class="footer__container container">
+        <div class="footer__container containe">
           <ul class="footer__list" role="list">${linksHTML}</ul>
         <div class="footer__logo__social">
           <ul class=" footer__list--social" role="list">${socialHTML}</ul>

@@ -175,7 +175,7 @@ button {
 
 .footer__container {
   min-height: 120px;
-  background-color: var(--sidebar-ring);
+  /* background-color: var(--sidebar-ring); */
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
@@ -249,12 +249,75 @@ button {
   font-size: 0.9rem;
 }
 
-.icon-moon{ color: var(--theme-moon); } .icon-sun{ color: var(--theme-sun); }
-.nav__btn-theme{
-  border: none;
-  background-color: transparent;
 
+
+/* --- Botão Voltar ao Topo --- */
+#btn-top {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: color-mix(in oklch, var(--background) 70%, var(--sidebar-ring) 30%);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.9);
+  transition: all 0.3s ease;
 }
+
+#btn-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+#btn-top svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  position: absolute;
+}
+
+#btn-top .bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 6;
+}
+
+#btn-top .progress {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 6;
+  stroke-linecap: round;
+  /* Circunferência para raio 45 é ~283 */
+  stroke-dasharray: 283;
+  stroke-dashoffset: 283;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+#btn-top i {
+  font-size: 1.2rem;
+  color: var(--primary);
+  z-index: 2;
+}
+
+#btn-top .arrow {
+  fill: var(--primary-foreground);
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+#btn-top:hover {
+  transform: scale(1.1);
+}
+
 
 @media (min-width: 1024px) {
   .nav__list--toggle-btn,
@@ -298,9 +361,5 @@ button {
     padding: 1rem;
   }
 
-  #btn-top {
-    right: 0.75rem;
-    width: 54px;
-    height: 54px;
-  }
+ 
 }

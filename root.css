@@ -11,6 +11,22 @@
 .hidden{
   display: none;
 }
+.icon-sun{
+  /* width: 32px;
+  height: 32px; */
+  background-color:var(  --theme-icon);
+  border-radius: var(--radius);
+  padding: 2px;
+  color: var(  --theme-sun);
+}
+.icon-moon{
+    /* width: 30px;
+  height: 30px; */
+   background-color: var(  --theme-icon);
+  border-radius: var(--radius);
+  padding: 2px;
+  color: var(  --theme-moon);
+}
 
 body {
   background-color: var(--background);
@@ -19,7 +35,7 @@ body {
  
  .container{
 margin: 0 auto;
- max-width: 1180px;
+ max-width: 1280px;
     }
  :root {
   --font-family: "Roboto", sans-serif;
