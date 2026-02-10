@@ -249,7 +249,7 @@ button {
   font-size: 0.9rem;
 }
 
-/* --- Botão Voltar ao Topo --- */ #btn-top { position: fixed; right: 0.25rem; bottom: 1.2rem; width: 45px; height: 45px; border-radius: 50%; border: 1px solid var(--border); background: color-mix(in oklch, var(--background) 70%, var(--sidebar-ring) 30%); backdrop-filter: blur(8px); cursor: pointer; z-index: 99; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transform: translateY(20px) scale(0.9); transition: all 0.3s ease; } #btn-top.show { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); } #btn-top svg { width: 100%; height: 100%; transform: rotate(-90deg); position: absolute; } #btn-top .bg { fill: none; stroke: var(--border); stroke-width: 6; } #btn-top .progress { fill: none; stroke: var(--primary); stroke-width: 6; stroke-linecap: round; /* Circunferência para raio 45 é ~283 */ stroke-dasharray: 283; stroke-dashoffset: 283; transition: stroke-dashoffset 0.1s linear; } #btn-top i { font-size: 1.2rem; color: var(--primary); z-index: 2; } #btn-top .arrow { fill: var( --chart-3); transform: rotate(90deg); transform-origin: center; } #btn-top:hover { transform: scale(1.1); }
+.icon-moon{ color: var(--theme-moon); } .icon-sun{ color: var(--theme-sun); }
 
 
 @media (min-width: 1024px) {
