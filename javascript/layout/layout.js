@@ -37,9 +37,9 @@ const socialLinks = [
 function createLogoItem(href = "/") {
   return `
     <li>
-      <a href="${href} aria-label="Ir para a página inicial">
+    <a href="${href}" aria-label="Ir para a página inicial">
         ${Icons.logo}
-      </a>
+     </a>
     </li>
   `;
 }
@@ -82,23 +82,23 @@ function createNavItem({ href, icon, text }, variant = "", iconVariant = "") {
 
 
 
- 
 function createSocialItem({ href, icon, label }, variantSocial = "") {
-    const socialClassMap = {
+  const socialClassMap = {
     mobileIconSocial: "nav__iconSocial nav__icon--social-mobile",
     footerIconSocial: "nav__iconSocial nav__icon--social-footer",
-   
   };
 
-  return `
-    <li>
-      <a class="${socialClassMap[variantSocial]}" "href="${href}" aria-label="${label}" target="_blank" rel="noopener noreferrer">
+  return `   
+      <a class="${socialClassMap[variantSocial]}"
+         href="${href}"
+         aria-label="${label}"
+         target="_blank"
+         rel="noopener noreferrer">
         ${Icons[icon]}
       </a>
-    </li>
+     </li>
   `;
 }
-
 function createThemeToggle() {
   return `
     <li>
@@ -160,10 +160,11 @@ class FooterBar extends HTMLElement {
     this.innerHTML = `
       <footer class="footer">
         <div class="footer__container container">
-         <div> <ul class="footer__list" role="list">${linksHTML}</ul></div>
+          <ul class="footer__list" role="list">${linksHTML}</ul>
         <div class="footer__logo__social">
-        <ul class=" footer__list--logo">${logoHTML}</ul>
-          <ul class=" footer__list--social" role="list">${socialHTML}</ul></div>
+          <ul class=" footer__list--social" role="list">${socialHTML}</ul>
+           <ul class=" footer__list--logo">${logoHTML}</ul>
+        </div>
         </div>
         <ul class="footer__copy">© 2026 • Feito com JavaScript puro</ul>
       </footer>
