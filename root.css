@@ -11,23 +11,26 @@
 .hidden{
   display: none;
 }
-.icon-sun{
-  /* width: 32px;
-  height: 32px; */
-  background-color:var(  --theme-icon);
+.icon-sun,
+.icon-moon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 4px;              /* padding fixo */
   border-radius: var(--radius);
-  padding: 2px;
-  color: var(  --theme-sun);
-}
-.icon-moon{
-    /* width: 30px;
-  height: 30px; */
-   background-color: var(  --theme-icon);
-  border-radius: var(--radius);
-  padding: 2px;
-  color: var(  --theme-moon);
+ 
 }
 
+.icon-sun { color: var(--theme-sun); }
+.icon-moon { color: var(--theme-moon); }
+
+.icon-sun:focus-visible,
+.icon-moon:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ring);
+}
 body {
   background-color: var(--background);
   color: var(--foreground);
