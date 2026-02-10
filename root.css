@@ -4,33 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-[data-theme="dark"] .icon-sun { display: block; }
-[data-theme="dark"] .icon-moon { display: none; }
-[data-theme="light"] .icon-sun { display: none; }
-[data-theme="light"] .icon-moon { display: block; }
-.hidden{
-  display: none;
-}
-.icon-sun,
-.icon-moon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 4px;              /* padding fixo */
-  border-radius: var(--radius);
- 
-}
 
-.icon-sun { color: var(--theme-sun); }
-.icon-moon { color: var(--theme-moon); }
-
-.icon-sun:focus-visible,
-.icon-moon:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--ring);
-}
 body {
   background-color: var(--background);
   color: var(--foreground);
